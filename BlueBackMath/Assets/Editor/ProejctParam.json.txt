@@ -1,0 +1,67 @@
+{
+    "namespace_author":"BlueBack",
+    "namespace_package":"Math",
+    "git_url":"https://github.com/bluebackblue/UpmMath",
+    "git_api":"https://api.github.com/repos/bluebackblue/UpmMath",
+    "git_path":"BlueBackMath/Assets/UPM",
+    "discription_simple":"アセット操作",
+    "discription_detal":[
+        "計算",
+    ],
+    "keyword":[
+        "asset"
+    ],
+    "changelog":[
+        "# Changelog",
+        "",
+        "## [0.0.0] - 2021-03-30",
+        "### Changes",
+        "- Init",
+        ""
+    ],
+    "root_readmemd_path":"../../README.md",
+    "need_unity_version":"2020.1",
+    "asmdef_runtime":{
+        "define_list":[
+        ],
+        "reference_list":[
+            {
+                "mode":"package",
+                "package_fullname":"Unity.Mathematics",
+                "url":"https://docs.unity3d.com/Packages/com.unity.mathematics@latest/index.html"
+            }
+        ]
+    },
+    "asmdef_editor":{
+        "define_list":[
+        ],
+        "reference_list":[
+            {
+                "mode":"package",
+                "package_fullname":"BlueBack.Math",
+                "url":"https://github.com/bluebackblue/UpmMath"
+            }
+        ]
+    },
+    "asmdef_sample":{
+        "define_list":[
+        ],
+        "reference_list":[
+            {
+                "mode":"package",
+                "package_fullname":"BlueBack.Math",
+                "url":"https://github.com/bluebackblue/UpmMath"
+            },
+            {
+                "mode":"package",
+                "package_fullname":"BlueBack.Math.Editor",
+                "url":"https://github.com/bluebackblue/UpmMath"
+            },
+            {
+                "mode":"package",
+                "package_fullname":"Unity.Mathematics",
+                "url":"https://docs.unity3d.com/Packages/com.unity.mathematics@latest/index.html"
+            }
+        ]
+    }
+}

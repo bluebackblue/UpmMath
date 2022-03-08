@@ -1,8 +1,8 @@
 
 
-/** BlueBack.Math.Samples.QuaternionDot
+/** BlueBack.Math.Samples.QuaternionMultiple
 */
-namespace BlueBack.Math.Samples.QuaternionDot
+namespace BlueBack.Math.Samples.QuaternionMultiple
 {
 	/** Main_MonoBehaviour
 	*/
@@ -12,14 +12,14 @@ namespace BlueBack.Math.Samples.QuaternionDot
 		*/
 		private Unity.Mathematics.Random random;
 
-		/** dot
+		/** quaternion
 		*/
-		public float dot_1;
-		public float dot_2;
+		public Unity.Mathematics.quaternion quaternion_1;
+		public Unity.Mathematics.quaternion quaternion_2;
 
 		/** distance
 		*/
-		public float distance;
+		public Unity.Mathematics.float4 distance;
 
 		/** Awake
 		*/
@@ -42,14 +42,14 @@ namespace BlueBack.Math.Samples.QuaternionDot
 			t_quaternion_2 = Unity.Mathematics.math.mul(Unity.Mathematics.quaternion.AxisAngle(UnityEngine.Vector3.left,this.random.NextFloat(0.0f,6.28f)),t_quaternion_2);
 			t_quaternion_2 = Unity.Mathematics.math.mul(Unity.Mathematics.quaternion.AxisAngle(UnityEngine.Vector3.forward,this.random.NextFloat(0.0f,6.28f)),t_quaternion_2);
 
-			//UnityEngine.Quaternion.Dot
-			this.dot_1 = UnityEngine.Quaternion.Dot(t_quaternion_1,t_quaternion_2);
+			//Unity.Mathematics.math.mul
+			this.quaternion_1 = Unity.Mathematics.math.mul(t_quaternion_1,t_quaternion_2);
 
-			//BlueBack.Math.Quaternion.Dot
-			this.dot_2 = BlueBack.Math.Quaternion.Dot(in t_quaternion_1,in t_quaternion_2);
+			//BlueBack.Math.Quaternion.Multiple
+			this.quaternion_2 = BlueBack.Math.Quaternion.Multiple(in t_quaternion_1,in t_quaternion_2);
 
 			//distance
-			this.distance = this.dot_1 - this.dot_2;
+			this.distance = BlueBack.Math.Float4.CutEpsilon(this.quaternion_1.value - this.quaternion_2.value);
 		}
 	}
 }

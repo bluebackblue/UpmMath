@@ -26,6 +26,124 @@ namespace BlueBack.Math
 				a_quaternion_l.value.w * a_quaternion_r.value.w
 			);
 		}
+
+		/** Inverse
+		*/
+		public static Unity.Mathematics.quaternion Inverse(in Unity.Mathematics.quaternion a_quaternion)
+		{
+			return new Unity.Mathematics.quaternion(-a_quaternion.value.x,-a_quaternion.value.y,-a_quaternion.value.z,a_quaternion.value.w);
+		}
+
+		/** AxisAngle
+		*/
+		public static Unity.Mathematics.quaternion AxisAngle(in Unity.Mathematics.float3 a_axis,float a_radian)
+		{
+			float t_half_radian = a_radian * 0.5f;
+			float t_sin_half_theta = Unity.Mathematics.math.sin(t_half_radian);
+			float t_cos_half_theta = Unity.Mathematics.math.cos(t_half_radian);
+
+			return new Unity.Mathematics.quaternion(
+				a_axis.x * t_sin_half_theta,
+				a_axis.y * t_sin_half_theta,
+				a_axis.z * t_sin_half_theta,
+				t_cos_half_theta
+			);
+		}
+
+		/** Normalize
+		*/
+		public static Unity.Mathematics.quaternion Normalize(in Unity.Mathematics.quaternion a_quaternion)
+		{
+			float t_length = Unity.Mathematics.math.length(a_quaternion.value);
+			return new Unity.Mathematics.quaternion(a_quaternion.value / t_length);
+		}
+
+		/** Multiple
+		*/
+		public static Unity.Mathematics.quaternion Multiple(in Unity.Mathematics.quaternion a_quaternion_l,in Unity.Mathematics.quaternion a_quaternion_r)
+		{
+			return new Unity.Mathematics.quaternion(
+				 a_quaternion_l.value.x * a_quaternion_r.value.w + a_quaternion_l.value.y * a_quaternion_r.value.z - a_quaternion_l.value.z * a_quaternion_r.value.y + a_quaternion_l.value.w * a_quaternion_r.value.x,
+				-a_quaternion_l.value.x * a_quaternion_r.value.z + a_quaternion_l.value.y * a_quaternion_r.value.w + a_quaternion_l.value.z * a_quaternion_r.value.x + a_quaternion_l.value.w * a_quaternion_r.value.y,
+				 a_quaternion_l.value.x * a_quaternion_r.value.y - a_quaternion_l.value.y * a_quaternion_r.value.x + a_quaternion_l.value.z * a_quaternion_r.value.w + a_quaternion_l.value.w * a_quaternion_r.value.z,
+				-a_quaternion_l.value.x * a_quaternion_r.value.x - a_quaternion_l.value.y * a_quaternion_r.value.y - a_quaternion_l.value.z * a_quaternion_r.value.z + a_quaternion_l.value.w * a_quaternion_r.value.w
+			);
+		}
+
+		/** Multiple
+		*/
+		public static Unity.Mathematics.float3 Multiple(in Unity.Mathematics.quaternion a_quaternion,in Unity.Mathematics.float3 a_point)
+		{
+			float t_xx2 = a_quaternion.value.x * a_quaternion.value.x * 2.0f;
+			float t_yy2 = a_quaternion.value.y * a_quaternion.value.y * 2.0f;
+			float t_zz2 = a_quaternion.value.z * a_quaternion.value.z * 2.0f;
+			float t_xy2 = a_quaternion.value.x * a_quaternion.value.y * 2.0f;
+			float t_xz2 = a_quaternion.value.x * a_quaternion.value.z * 2.0f;
+			float t_yz2 = a_quaternion.value.y * a_quaternion.value.z * 2.0f;
+			float t_wx2 = a_quaternion.value.w * a_quaternion.value.x * 2.0f;
+			float t_wy2 = a_quaternion.value.w * a_quaternion.value.y * 2.0f;
+			float t_wz2 = a_quaternion.value.w * a_quaternion.value.z * 2.0f;
+
+			return new Unity.Mathematics.float3(
+				(1.0f - (t_yy2 + t_zz2)) * a_point.x + (t_xy2 - t_wz2) * a_point.y + (t_xz2 + t_wy2) * a_point.z,
+				(t_xy2 + t_wz2) * a_point.x + (1.0f - (t_xx2 + t_zz2)) * a_point.y + (t_yz2 - t_wx2) * a_point.z,
+				(t_xz2 - t_wy2) * a_point.x + (t_yz2 + t_wx2) * a_point.y + (1.0f - (t_xx2 + t_yy2)) * a_point.z
+			);
+		}
+
+		/** LookRotationFast
+		*/
+		public static Unity.Mathematics.quaternion LookRotationFast(in Unity.Mathematics.float3 a_forward,in Unity.Mathematics.float3 a_up)
+		{
+			Unity.Mathematics.float3 t_up = Unity.Mathematics.math.normalize(a_up - (a_forward * Unity.Mathematics.math.dot(a_forward,a_up)));
+			Unity.Mathematics.float3 t_right = Unity.Mathematics.math.cross(t_up,a_forward);
+
+			float t_value = Unity.Mathematics.math.sqrt(t_right.x + t_up.y + a_forward.z + 1.0f) * 0.5f;
+			float t_normalize = 0.25f / t_value;
+
+			return new Unity.Mathematics.quaternion(
+				(t_up.z - a_forward.y) * t_normalize,
+				(a_forward.x - t_right.z) * t_normalize,
+				(t_right.y - t_up.x) * t_normalize,
+				t_normalize
+			);
+		}
+
+		/** LookRotation
+		*/
+		public static Unity.Mathematics.quaternion LookRotation(in Unity.Mathematics.float3 a_forward,in Unity.Mathematics.float3 a_up)
+		{
+			Unity.Mathematics.float3 t_up = Unity.Mathematics.math.normalize(a_up - (a_forward * Unity.Mathematics.math.dot(a_forward,a_up)));
+			Unity.Mathematics.float3 t_right = Unity.Mathematics.math.cross(t_up,a_forward);
+
+			//Sqrtに渡してなるべく大きな値になるように。
+			float t_value_0 =  t_right.x + t_up.y + a_forward.z + 1.0f;
+			float t_value_1 = -t_right.x + t_up.y - a_forward.z + 1.0f;
+			float t_value_2 =  t_right.x - t_up.y - a_forward.z + 1.0f;
+			float t_value_3 = -t_right.x - t_up.y + a_forward.z + 1.0f;
+
+			if((t_value_0 >= t_value_1)&&(t_value_0 >= t_value_2)&&(t_value_0 >= t_value_3)){
+				//0
+				float t_value = UnityEngine.Mathf.Sqrt(t_value_0) * 0.5f;
+				float t_normalize = 0.25f / t_value;
+				return new Unity.Mathematics.quaternion((t_up.z - a_forward.y) * t_normalize,(a_forward.x - t_right.z) * t_normalize,(t_right.y - t_up.x) * t_normalize,t_value);
+			}else if((t_value_1 >= t_value_2)&&(t_value_1 >= t_value_3)){
+				//1
+				float t_value = UnityEngine.Mathf.Sqrt(t_value_1) * 0.5f;
+				float t_normalize = 0.25f / t_value;
+				return new Unity.Mathematics.quaternion((t_right.y + t_up.x) * t_normalize,t_value,(t_up.z + a_forward.y) * t_normalize,(a_forward.x - t_right.z) * t_normalize);
+			}else if(t_value_2 >= t_value_3){
+				//2
+				float t_value = UnityEngine.Mathf.Sqrt(t_value_2) * 0.5f;
+				float t_normalize = 0.25f / t_value;
+				return new Unity.Mathematics.quaternion(t_value,(t_right.y + t_up.x) * t_normalize,(a_forward.x + t_right.z) * t_normalize,(t_up.z - a_forward.y) * t_normalize);
+			}else{
+				//3
+				float t_value = UnityEngine.Mathf.Sqrt(t_value_3) * 0.5f;
+				float t_normalize = 0.25f / t_value;
+				return new Unity.Mathematics.quaternion((a_forward.x + t_right.z) * t_normalize,(t_up.z + a_forward.y) * t_normalize,t_value,(t_right.y - t_up.x) * t_normalize);
+			}
+		}
 	}
 }
 

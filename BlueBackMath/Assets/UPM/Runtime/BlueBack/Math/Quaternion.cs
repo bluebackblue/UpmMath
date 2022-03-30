@@ -71,6 +71,9 @@ namespace BlueBack.Math
 		}
 
 		/** Multiple
+
+			TODO:
+
 		*/
 		public static Unity.Mathematics.float3 Multiple(in Unity.Mathematics.quaternion a_quaternion,in Unity.Mathematics.float3 a_point)
 		{
@@ -145,23 +148,23 @@ namespace BlueBack.Math
 			}
 		}
 
-		/** LookRotationMathematics
+		/** LookRotation_Mathematics
 
 			https://github.com/Unity-Technologies/Unity.Mathematics/blob/master/src/Unity.Mathematics/quaternion.cs#L390
 
 		*/
-		public static Unity.Mathematics.quaternion LookRotationMathematics(in Unity.Mathematics.float3 a_forward,in Unity.Mathematics.float3 a_up)
+		public static Unity.Mathematics.quaternion LookRotation_Mathematics(in Unity.Mathematics.float3 a_forward,in Unity.Mathematics.float3 a_up)
 		{
             Unity.Mathematics.float3 t_right = Unity.Mathematics.math.normalize(Unity.Mathematics.math.cross(a_up,a_forward));
-            return CreateMathematics(in t_right,Unity.Mathematics.math.cross(a_forward,t_right),in a_forward);
+            return Create_Mathematics(in t_right,Unity.Mathematics.math.cross(a_forward,t_right),in a_forward);
 		}
 
-		/** CreateMathematics
+		/** Create_Mathematics
 
 			https://github.com/Unity-Technologies/Unity.Mathematics/blob/master/src/Unity.Mathematics/quaternion.cs#L44
 
 		*/
-		public static Unity.Mathematics.quaternion CreateMathematics(in Unity.Mathematics.float3 a_right,in Unity.Mathematics.float3 a_up,in Unity.Mathematics.float3 a_forward)
+		public static Unity.Mathematics.quaternion Create_Mathematics(in Unity.Mathematics.float3 a_right,in Unity.Mathematics.float3 a_up,in Unity.Mathematics.float3 a_forward)
 		{
 			uint t_right_sign = (Unity.Mathematics.math.asuint(a_right.x) & 0x80000000);
 			float t_value = a_up.y + Unity.Mathematics.math.asfloat(Unity.Mathematics.math.asuint(a_forward.z) ^ t_right_sign);

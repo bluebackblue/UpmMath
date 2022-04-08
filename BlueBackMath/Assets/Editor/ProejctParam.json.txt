@@ -4,7 +4,7 @@
     "git_url":"https://github.com/bluebackblue/UpmMath",
     "git_api":"https://api.github.com/repos/bluebackblue/UpmMath",
     "git_path":"BlueBackMath/Assets/UPM",
-    "discription_simple":"アセット操作",
+    "discription_simple":"計算",
     "discription_detal":[
         "計算",
     ],

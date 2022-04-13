@@ -179,11 +179,15 @@ MonoBehaviour:
       y: 0
       z: 0
       w: 0
-  forrawd_1:
+  forward_true:
     x: 0
     y: 0
     z: 0
-  forrawd_2:
+  forward_1:
+    x: 0
+    y: 0
+    z: 0
+  forward_2:
     x: 0
     y: 0
     z: 0
@@ -195,8 +199,11 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
-  distance:
+  distance_forward:
     x: 0
     y: 0
     z: 0
-    w: 0
+  distance_up:
+    x: 0
+    y: 0
+    z: 0

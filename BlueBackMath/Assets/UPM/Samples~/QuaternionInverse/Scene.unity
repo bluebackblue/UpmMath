@@ -152,7 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f71a8b6d44d174c88017e8812c078e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quaternion_from:
+  quaternion_1:
+    value:
+      x: 0
+      y: 0
+      z: 0
+      w: 0
+  quaternion_2:
     value:
       x: 0
       y: 0

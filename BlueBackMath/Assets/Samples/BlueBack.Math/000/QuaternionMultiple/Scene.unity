@@ -179,4 +179,8 @@ MonoBehaviour:
       y: 0
       z: 0
       w: 0
-  distance: 0
+  distance:
+    x: 0
+    y: 0
+    z: 0
+    w: 0

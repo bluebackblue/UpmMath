@@ -22,7 +22,7 @@ namespace BlueBack.Math.Editor
 
 		/** MenuItem_UpdatePackage_Develop
 		*/
-		#if(!DEF_USER_BLUEBACK_MATH)
+		#if(!USERDEF_BLUEBACK_MATH)
 		[UnityEditor.MenuItem("BlueBack/Math/UpdatePackage/Develop")]
 		#endif
 		public static void MenuItem_UpdatePackage_Develop()
@@ -40,7 +40,7 @@ namespace BlueBack.Math.Editor
 
 		/** MenuItem_UpdatePackage_Last
 		*/
-		#if(!DEF_USER_BLUEBACK_MATH)
+		#if(!USERDEF_BLUEBACK_MATH)
 		[UnityEditor.MenuItem("BlueBack/Math/UpdatePackage/Last " + Version.packageversion)]
 		#endif
 		public static void MenuItem_UpdatePackage_Last()

@@ -23,12 +23,6 @@
 	"need_unity_version":"2020.1",
 	"asmdef_runtime":{
 		"define_list":[
-			{
-				"mode":"package",
-				"package_pathname":"com.unity.mathematics",
-				"define":"ASMDEF_UNITY_MATHEMATICS",
-				"expression":null
-			}
 		],
 		"reference_list":[
 			{

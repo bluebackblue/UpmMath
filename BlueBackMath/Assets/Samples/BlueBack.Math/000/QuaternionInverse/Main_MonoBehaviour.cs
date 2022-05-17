@@ -2,6 +2,7 @@
 
 /** BlueBack.Math.Samples.QuaternionInverse
 */
+#if(!DEF_BLUEBACK_MATH_SAMPLES_DISABLE)
 namespace BlueBack.Math.Samples.QuaternionInverse
 {
 	/** Main_MonoBehaviour
@@ -48,4 +49,5 @@ namespace BlueBack.Math.Samples.QuaternionInverse
 		}
 	}
 }
+#endif
 

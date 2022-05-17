@@ -2,6 +2,7 @@
 
 /** BlueBack.Math.Samples.Float3Cross
 */
+#if(!DEF_BLUEBACK_MATH_SAMPLES_DISABLE)
 namespace BlueBack.Math.Samples.Float3Cross
 {
 	/** Main_MonoBehaviour
@@ -46,4 +47,5 @@ namespace BlueBack.Math.Samples.Float3Cross
 		}
 	}
 }
+#endif
 

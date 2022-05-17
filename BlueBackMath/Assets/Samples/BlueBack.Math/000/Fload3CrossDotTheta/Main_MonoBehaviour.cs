@@ -2,6 +2,7 @@
 
 /** BlueBack.Math.Samples.Fload3CrossDotTheta
 */
+#if(!DEF_BLUEBACK_MATH_SAMPLES_DISABLE)
 namespace BlueBack.Math.Samples.Fload3CrossDotTheta
 {
 	/** Main_MonoBehaviour
@@ -29,6 +30,10 @@ namespace BlueBack.Math.Samples.Fload3CrossDotTheta
 		private void Awake()
 		{
 			this.random = new Unity.Mathematics.Random((uint)System.DateTime.Now.Millisecond);
+
+			this.gameobjet_1 = UnityEngine.GameObject.Find("1");
+			this.gameobjet_2 = UnityEngine.GameObject.Find("2");
+			this.gameobjet_cross = UnityEngine.GameObject.Find("cross");
 		}
 
 		/** Update
@@ -66,4 +71,5 @@ namespace BlueBack.Math.Samples.Fload3CrossDotTheta
 		}
 	}
 }
+#endif
 

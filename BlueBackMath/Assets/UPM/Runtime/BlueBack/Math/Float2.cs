@@ -7,12 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_MATHEMATICS)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Math
 */
 namespace BlueBack.Math
 {
 	/** Float2
 	*/
+	#if(ASMDEF_TRUE)
 	public static class Float2
 	{
 		/** CutEpsilon
@@ -25,5 +35,6 @@ namespace BlueBack.Math
 			);
 		}
 	}
+	#endif
 }
 

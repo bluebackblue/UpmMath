@@ -2,6 +2,7 @@
 
 /** BlueBack.Math.Samples.QuaternionDot
 */
+#if(!DEF_BLUEBACK_MATH_SAMPLES_DISABLE)
 namespace BlueBack.Math.Samples.QuaternionDot
 {
 	/** Main_MonoBehaviour
@@ -53,4 +54,5 @@ namespace BlueBack.Math.Samples.QuaternionDot
 		}
 	}
 }
+#endif
 

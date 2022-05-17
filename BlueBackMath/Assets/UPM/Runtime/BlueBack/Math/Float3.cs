@@ -7,12 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_MATHEMATICS)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Math
 */
 namespace BlueBack.Math
 {
 	/** Float3
 	*/
+	#if(ASMDEF_TRUE)
 	public static class Float3
 	{
 		/** CutEpsilon
@@ -46,5 +56,6 @@ namespace BlueBack.Math
 			return a_value_1.yzx * a_value_2.zxy - a_value_1.zxy * a_value_2.yzx;
 		}
 	}
+	#endif
 }
 

@@ -7,12 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_MATHEMATICS)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Math
 */
 namespace BlueBack.Math
 {
 	/** Quaternion
 	*/
+	#if(ASMDEF_TRUE)
 	public static class Quaternion
 	{
 		/** Dot
@@ -166,5 +176,6 @@ namespace BlueBack.Math
 			return t_quaternion;
 		}
 	}
+	#endif
 }
 

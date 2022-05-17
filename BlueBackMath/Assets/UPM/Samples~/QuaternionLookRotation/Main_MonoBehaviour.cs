@@ -2,6 +2,7 @@
 
 /** BlueBack.Math.Samples.QuaternionLookRotation
 */
+#if(!DEF_BLUEBACK_MATH_SAMPLES_DISABLE)
 namespace BlueBack.Math.Samples.QuaternionLookRotation
 {
 	/** Main_MonoBehaviour
@@ -74,4 +75,5 @@ namespace BlueBack.Math.Samples.QuaternionLookRotation
 		}
 	}
 }
+#endif
 

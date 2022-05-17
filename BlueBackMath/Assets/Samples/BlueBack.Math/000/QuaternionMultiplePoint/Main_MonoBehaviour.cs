@@ -2,6 +2,7 @@
 
 /** BlueBack.Math.Samples.QuaternionMultiplePoint
 */
+#if(!DEF_BLUEBACK_MATH_SAMPLES_DISABLE)
 namespace BlueBack.Math.Samples.QuaternionMultiplePoint
 {
 	/** Main_MonoBehaviour
@@ -50,4 +51,5 @@ namespace BlueBack.Math.Samples.QuaternionMultiplePoint
 		}
 	}
 }
+#endif
 

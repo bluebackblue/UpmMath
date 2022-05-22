@@ -30,7 +30,7 @@ namespace BlueBack.Math.Samples.QuaternionInverse
 		}
 
 		/** Update
-        */
+		*/
 		private void Update()
 		{
 			Unity.Mathematics.quaternion t_quaternion = Unity.Mathematics.quaternion.identity;

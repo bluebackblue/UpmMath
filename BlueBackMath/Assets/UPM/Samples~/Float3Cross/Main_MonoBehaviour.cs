@@ -30,7 +30,7 @@ namespace BlueBack.Math.Samples.Float3Cross
 		}
 
 		/** Update
-        */
+		*/
 		private void Update()
 		{
 			Unity.Mathematics.float3 t_float3_1 = new Unity.Mathematics.float3(this.random.NextFloat(-1.0f,1.0f),this.random.NextFloat(-1.0f,1.0f),this.random.NextFloat(-1.0f,1.0f));

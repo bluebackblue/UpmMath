@@ -30,7 +30,7 @@ namespace BlueBack.Math.Samples.QuaternionDot
 		}
 
 		/** Update
-        */
+		*/
 		private void Update()
 		{
 			Unity.Mathematics.quaternion t_quaternion_1 = Unity.Mathematics.quaternion.identity;

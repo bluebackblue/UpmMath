@@ -37,7 +37,7 @@ namespace BlueBack.Math.Samples.Fload3CrossDotTheta
 		}
 
 		/** Update
-        */
+		*/
 		private void Update()
 		{
 			Unity.Mathematics.float3 t_float3_1 = new Unity.Mathematics.float3(0.0f,0.0f,1.0f);

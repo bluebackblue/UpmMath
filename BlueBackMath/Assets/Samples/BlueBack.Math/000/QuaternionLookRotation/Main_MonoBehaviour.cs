@@ -42,7 +42,7 @@ namespace BlueBack.Math.Samples.QuaternionLookRotation
 		}
 
 		/** Update
-        */
+		*/
 		private void Update()
 		{
 			this.forward_true = Unity.Mathematics.math.normalize(new Unity.Mathematics.float3(this.random.NextFloat(-1.0f,1.0f),this.random.NextFloat(-1.0f,1.0f),this.random.NextFloat(-1.0f,1.0f)));

@@ -73,10 +73,10 @@ namespace BlueBack.Math
 		public static Unity.Mathematics.quaternion Multiple(in Unity.Mathematics.quaternion a_quaternion_l,in Unity.Mathematics.quaternion a_quaternion_r)
 		{
 			return new Unity.Mathematics.quaternion(
-				 a_quaternion_l.value.x * a_quaternion_r.value.w + a_quaternion_l.value.y * a_quaternion_r.value.z - a_quaternion_l.value.z * a_quaternion_r.value.y + a_quaternion_l.value.w * a_quaternion_r.value.x,
-				-a_quaternion_l.value.x * a_quaternion_r.value.z + a_quaternion_l.value.y * a_quaternion_r.value.w + a_quaternion_l.value.z * a_quaternion_r.value.x + a_quaternion_l.value.w * a_quaternion_r.value.y,
-				 a_quaternion_l.value.x * a_quaternion_r.value.y - a_quaternion_l.value.y * a_quaternion_r.value.x + a_quaternion_l.value.z * a_quaternion_r.value.w + a_quaternion_l.value.w * a_quaternion_r.value.z,
-				-a_quaternion_l.value.x * a_quaternion_r.value.x - a_quaternion_l.value.y * a_quaternion_r.value.y - a_quaternion_l.value.z * a_quaternion_r.value.z + a_quaternion_l.value.w * a_quaternion_r.value.w
+				+ a_quaternion_l.value.x * a_quaternion_r.value.w + a_quaternion_l.value.y * a_quaternion_r.value.z - a_quaternion_l.value.z * a_quaternion_r.value.y + a_quaternion_l.value.w * a_quaternion_r.value.x,
+				- a_quaternion_l.value.x * a_quaternion_r.value.z + a_quaternion_l.value.y * a_quaternion_r.value.w + a_quaternion_l.value.z * a_quaternion_r.value.x + a_quaternion_l.value.w * a_quaternion_r.value.y,
+				+ a_quaternion_l.value.x * a_quaternion_r.value.y - a_quaternion_l.value.y * a_quaternion_r.value.x + a_quaternion_l.value.z * a_quaternion_r.value.w + a_quaternion_l.value.w * a_quaternion_r.value.z,
+				- a_quaternion_l.value.x * a_quaternion_r.value.x - a_quaternion_l.value.y * a_quaternion_r.value.y - a_quaternion_l.value.z * a_quaternion_r.value.z + a_quaternion_l.value.w * a_quaternion_r.value.w
 			);
 		}
 
@@ -85,7 +85,7 @@ namespace BlueBack.Math
 		public static Unity.Mathematics.float3 Multiple(in Unity.Mathematics.quaternion a_quaternion,in Unity.Mathematics.float3 a_point)
 		{
 			Unity.Mathematics.float3 t_temp = 2 * (a_quaternion.value.yzx * a_point.zxy - a_quaternion.value.zxy * a_point.yzx);
-            return a_point + t_temp * a_quaternion.value.w + t_temp.zxy * a_quaternion.value.yzx - t_temp.yzx * a_quaternion.value.zxy;
+			return a_point + t_temp * a_quaternion.value.w + t_temp.zxy * a_quaternion.value.yzx - t_temp.yzx * a_quaternion.value.zxy;
 		}
 
 		/** LookRotationFast
@@ -149,8 +149,8 @@ namespace BlueBack.Math
 		*/
 		public static Unity.Mathematics.quaternion LookRotation_Mathematics(in Unity.Mathematics.float3 a_forward,in Unity.Mathematics.float3 a_up)
 		{
-            Unity.Mathematics.float3 t_right = Unity.Mathematics.math.normalize(Unity.Mathematics.math.cross(a_up,a_forward));
-            return Create_Mathematics(in t_right,Unity.Mathematics.math.cross(a_forward,t_right),in a_forward);
+			Unity.Mathematics.float3 t_right = Unity.Mathematics.math.normalize(Unity.Mathematics.math.cross(a_up,a_forward));
+			return Create_Mathematics(in t_right,Unity.Mathematics.math.cross(a_forward,t_right),in a_forward);
 		}
 
 		/** Create_Mathematics

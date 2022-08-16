@@ -9,6 +9,7 @@ MIT License
 ## 依存 / 使用ライセンス等
 ### ランタイム
 * https://docs.unity3d.com/Packages/com.unity.mathematics@latest/index.html
+* https://github.com/bluebackblue/UpmDebug
 ### エディター
 * https://github.com/bluebackblue/UpmMath
 ### サンプル
@@ -20,7 +21,7 @@ Unity 2022.1.0b16
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmMath.git?path=BlueBackMath/Assets/UPM#0.0.3
+* https://github.com/bluebackblue/UpmMath.git?path=BlueBackMath/Assets/UPM#0.0.4
 ### 開発
 * https://github.com/bluebackblue/UpmMath.git?path=BlueBackMath/Assets/UPM
 
